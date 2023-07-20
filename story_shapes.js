@@ -82,22 +82,15 @@ svg.append("line")
 
 
 
+
+
 function toggleLine(id) {
     let line = d3.select("#" + id);
     let display = line.style("display");
     line.style("display", display === "none" ? "inline" : "none");
 }
 
-window.onload = function() {
-    let buttons = document.getElementsByClassName("story-button");
 
-    for (let button of buttons) {
-        button.onclick = function() {
-            toggleLine(this.id);
-            this.classList.toggle("active");
-        }
-    }
-}
 
 
 
