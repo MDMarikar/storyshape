@@ -18,17 +18,20 @@ let storyShapes = {
     "boy-meets-girl": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2)})),
     "kafkaesque": Array.from({length: 100}, (_, i) => ({x: i / 99, y: -i / 100})),
     "hamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
-    "cinderella": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 50 ? 1 - (i - 25) / 25 : (i < 75 ? (i - 50) / 25 : 1))}))
+    "cinderella": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? -1 + i / 25 : (i < 50 ? -1 + (i - 25) / 25 : (i < 75 ? -1 + (i - 50) / 25 : -1 + i / 25))}))
 };
 
-// Draw story shapes
+// Draw story shapes with different colors
+let colors = ["blue", "red", "green", "purple", "orange"];
+let i = 0;
 for (let storyType in storyShapes) {
     svg.append("path")
         .datum(storyShapes[storyType])
         .attr("class", "line")
         .attr("id", storyType)
         .attr("d", line)
-        .attr("stroke", "black");
+        .attr("stroke", colors[i]);
+    i++;
 }
 
 // Create x and y axes
@@ -48,7 +51,7 @@ svg.append("g")
 // Add x and y axis labels
 svg.append("text")
     .attr("x", 360)
-    .attr("y", 490)
+    .attr("y", 480)  // Adjust the y position of the label
     .text("Beginning to End");
 
 svg.append("text")
