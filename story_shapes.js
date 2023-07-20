@@ -56,3 +56,15 @@ function toggleLine(id) {
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
 }
+
+window.onload = function() {
+    let buttons = document.getElementsByClassName("story-button");
+
+    for (let button of buttons) {
+        button.onclick = function() {
+            toggleLine(this.id);
+            this.classList.toggle("active");
+        }
+    }
+}
+
