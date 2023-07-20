@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.button {
+    display: inline-block; /* Align buttons horizontally */
+    padding: 15px 25px;  /* Increase button size */
+    margin: 10px;  /* Add some space around each button */
+    font-size: 2vw;  /* Responsive font size */
+    color: white;  /* Text color */
+    background-color: grey;  /* Default background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Assign colors that match the lines */
+#man-in-hole { background-color: blue; }
+#boy-meets-girl { background-color: red; }
+#kafkaesque { background-color: green; }
+#hamlet { background-color: purple; }
+#cinderella { background-color: orange; }
+
+.button:hover {
+    opacity: 0.7;
+}
+
+.button:active {
+    position: relative;
+    top: 1px;  /* Create a "pressed" effect */
+}
+
+#buttons {
+    text-align: center;  /* Center the button group */
+    margin-bottom: 20px;
+}
