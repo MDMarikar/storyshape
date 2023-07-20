@@ -12,6 +12,31 @@ let line = d3.line()
     .y(d => yScale(d.y))
     .curve(d3.curveBasis);  // Makes the line curvy
 
+let storyLabels = {
+    "man-in-hole": [
+        {x: 0.5, y: -0.5, text: "Falls into Hole"},
+        {x: 0.9, y: 0.5, text: "Gets Out of Hole"}
+    ],
+    "boy-meets-girl": [
+        {x: 0.25, y: 1, text: "Boy Meets Girl"},
+        {x: 0.5, y: -1, text: "Boy Loses Girl"},
+        {x: 0.75, y: 1, text: "Boy Gets Girl Back"}
+    ],
+    "kafkaesque": [
+        {x: 0, y: 0, text: "Life is Normal"},
+        {x: 1, y: -1.5, text: "Life is Miserable"}
+    ],
+    "hamlet": [
+        {x: 0.5, y: 0, text: "Hamlet's Crisis"}
+    ],
+    "cinderella": [
+        {x: 0.15, y: -1, text: "Life's Miserable"},
+        {x: 0.35, y: 1, text: "Fairy Godmother Appears"},
+        {x: 0.5, y: -0.4, text: "Prince Leaves"},
+        {x: 0.85, y: 2, text: "Marries Prince"}
+    ]
+};
+
 // Story shapes data
 let storyShapes = {
     "Lman-in-hole": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 50 ? -i / 50 : (i - 50) / 50})),
@@ -44,6 +69,18 @@ for (let storyType in storyShapes) {
         .attr("d", line)
         .attr("stroke", colors[i])
         .style("display", "none");  // Add this line to initially show the lines
+
+   // Create labels
+    for (let j = 0; j < storyLabels[storyType].length; j++) {
+        svg.append("text")
+            .attr("x", xScale(storyLabels[storyType][j].x))  // Position along the x-axis
+            .attr("y", yScale(storyLabels[storyType][j].y))  // Position along the y-axis
+            .attr("text-anchor", "middle")
+            .attr("id", storyType + "-label-" + j)  // Give each label a unique id
+            .text(storyLabels[storyType][j].text)
+            .style("display", "none");  // Hide label initially
+    }
+    
     i++;
 }
 
@@ -85,6 +122,17 @@ function toggleLine(id) {
     let line = d3.select("#L" + id);
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
+
+
+    // Select labels and toggle display style
+    let j = 0;
+    while (true) {
+        let label = d3.select("#" + id + "-label-" + j);
+        if (label.empty()) break;  // No more labels for this story type
+        display = label.style("display");
+        label.style("display", display === "none" ? "block" : "none");
+        j++;
+    }
 }
 
 
