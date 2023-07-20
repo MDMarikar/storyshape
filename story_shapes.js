@@ -30,7 +30,8 @@ for (let storyType in storyShapes) {
         .attr("class", "line")
         .attr("id", storyType)
         .attr("d", line)
-        .attr("stroke", colors[i]);
+        .attr("stroke", colors[i])
+        .style("display", "block");  // Add this line to initially show the lines
     i++;
 }
 
