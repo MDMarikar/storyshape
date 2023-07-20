@@ -17,31 +17,38 @@
     margin-bottom: 20px;
     }
 
-        .button {
+
+.button {
     display: inline-block;
-    padding: 12px 24px;
-    font-size: 18px;
+    padding: 20px 40px;  /* Increase the padding to make the buttons larger */
+    font-size: 24px;  /* Increase the font size */
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #4CAF50;
+    color: #fff;  /* Text color is white */
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    }
-
-.button:hover {
-    background-color: #3e8e41;
 }
 
-.button:active {
-    background-color: #3e8e41;
+/* Specify colors for each button to match the lines they represent */
+#man-in-hole { background-color: blue; }
+#boy-meets-girl { background-color: red; }
+#kafkaesque { background-color: green; }
+#hamlet { background-color: purple; }
+#cinderella { background-color: orange; }
+
+/* When a button is active, make it slightly darker and lower the box shadow */
+.button.active {
+    filter: brightness(85%);
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
+.button:hover {
+    filter: brightness(75%);
+}
 
 
     .axis path,
