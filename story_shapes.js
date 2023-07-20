@@ -47,7 +47,7 @@ let storyShapes = {
 let colors = ["blue", "red", "green", "purple", "orange"];
 let i = 0;
 for (let storyType in storyShapes) {
-    svg.append("path")
+   let path = svg.append("path")
         .datum(storyShapes[storyType])
         .attr("class", "line")
         .attr("id", storyType)
@@ -55,7 +55,10 @@ for (let storyType in storyShapes) {
         .attr("stroke", colors[i])
         .style("display", "none");  // Add this line to initially show the lines
 
-    
+    // Set stroke-dasharray and stroke-dashoffset to the length of the line
+    let length = path.node().getTotalLength();
+    path.attr("stroke-dasharray", length)
+        .attr("stroke-dashoffset", length);
 
      svg.append("text")
         .attr("x", 10)  // Position the label near the left edge of the SVG
@@ -110,11 +113,18 @@ function toggleLine(id) {
     line.style("display", display === "none" ? "block" : "none");
     description.style("display", display === "none" ? null : "none");
 
+     // If the line is being shown, animate it
+    if (display === "none") {
+        line.transition()
+            .duration(2000)  // Set duration of the animation
+            .attr("stroke-dashoffset", 0);
+    } else {
+        // If the line is being hidden, reset stroke-dashoffset
+        let length = line.node().getTotalLength();
+        line.attr("stroke-dashoffset", length);
+    }
+
 }
-
-
-
-
 
 
 
