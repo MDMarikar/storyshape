@@ -13,29 +13,13 @@ let line = d3.line()
     .curve(d3.curveBasis);  // Makes the line curvy
 
 let storyLabels = {
-    "man-in-hole": [
-        {x: 0.5, y: -0.5, text: "Falls into Hole"},
-        {x: 0.9, y: 0.5, text: "Gets Out of Hole"}
-    ],
-    "boy-meets-girl": [
-        {x: 0.25, y: 1, text: "Boy Meets Girl"},
-        {x: 0.5, y: -1, text: "Boy Loses Girl"},
-        {x: 0.75, y: 1, text: "Boy Gets Girl Back"}
-    ],
-    "kafkaesque": [
-        {x: 0, y: 0, text: "Life is Normal"},
-        {x: 1, y: -1.5, text: "Life is Miserable"}
-    ],
-    "hamlet": [
-        {x: 0.5, y: 0, text: "Hamlet's Crisis"}
-    ],
-    "cinderella": [
-        {x: 0.15, y: -1, text: "Life's Miserable"},
-        {x: 0.35, y: 1, text: "Fairy Godmother Appears"},
-        {x: 0.5, y: -0.4, text: "Prince Leaves"},
-        {x: 0.85, y: 2, text: "Marries Prince"}
-    ]
+    "man-in-hole": "Man gets into trouble and gets out",
+    "boy-meets-girl": "Boy finds girl, loses her, gets her back",
+    "kafkaesque": "Life goes from normal to miserable",
+    "hamlet": "Constant cycle of misery and joy",
+    "cinderella": "Life goes from miserable to great, with a dip in between"
 };
+
 
 // Story shapes data
 let storyShapes = {
@@ -70,18 +54,13 @@ for (let storyType in storyShapes) {
         .attr("stroke", colors[i])
         .style("display", "none");  // Add this line to initially show the lines
 
-   // Create labels
-    for (let j = 0; j < storyLabels[storyType].length; j++) {
-        let point = storyShapes[storyType].find(d => d.x === storyLabels[storyType][j].x);
-        svg.append("text")
-            .attr("x", xScale(point.x))
-            .attr("y", yScale(point.y))
-            .attr("text-anchor", "middle")
-            .attr("class", "story")  // Add the "story" class
-            .attr("id", storyType + "-label-" + j)
-            .text(storyLabels[storyType][j].text)
-            .style("display", "none");
-    }
+    svg.append("text")
+        .attr("x", 10)  // Position the label near the left edge of the SVG
+        .attr("y", 30 + i * 30)  // Position the labels one below the other
+        .attr("class", "story")
+        .attr("id", storyType + "-label")
+        .text(storyType.replace("-", " ") + ": " + storyLabels[storyType])
+        .style("display", "none");  // Hide label initially
     
     i++;
 }
@@ -122,9 +101,11 @@ svg.append("line")
 
 function toggleLine(id) {
     let line = d3.select("#L" + id);
+    let label = d3.select("#" + id + "-label")
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
-
+    label.style("display", display === "none" ? "block" : "none");
+}
 
 
 }
