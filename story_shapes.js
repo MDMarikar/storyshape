@@ -12,11 +12,11 @@ let line = d3.line()
 
 // Story shapes data
 let storyShapes = {
-    "man-in-hole": Array(100).fill().map((_, i) => (i < 50 ? -i / 50 : (i - 50) / 50)),
-    "boy-meets-girl": Array(100).fill().map((_, i) => (i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2))),
-    "kafkaesque": Array(100).fill().map((_, i) => -i / 100),
-    "hamlet": Array(100).fill().map((_, i) => Math.sin(i / 100 * 2 * Math.PI)),
-    "cinderella": Array(100).fill().map((_, i) => (i < 25 ? i / 25 : (i < 50 ? 1 - (i - 25) / 25 : (i < 75 ? (i - 50) / 25 : 1))))
+    "man-in-hole": Array.from({length: 100}, (_, i) => (i < 50 ? -i / 50 : (i - 50) / 50)),
+    "boy-meets-girl": Array.from({length: 100}, (_, i) => (i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2))),
+    "kafkaesque": Array.from({length: 100}, (_, i) => -i / 100),
+    "hamlet": Array.from({length: 100}, (_, i) => Math.sin(i / 100 * 2 * Math.PI)),
+    "cinderella": Array.from({length: 100}, (_, i) => (i < 25 ? i / 25 : (i < 50 ? 1 - (i - 25) / 25 : (i < 75 ? (i - 50) / 25 : 1))))
 };
 
 // Draw story shapes
