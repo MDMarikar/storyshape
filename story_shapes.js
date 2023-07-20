@@ -13,11 +13,11 @@ let line = d3.line()
     .curve(d3.curveBasis);  // Makes the line curvy
 
 let storyDescriptions = {
-    "man-in-hole": "Man gets into trouble and gets out",
-    "boy-meets-girl": "Boy finds girl, loses her, gets her back",
-    "kafkaesque": "Life goes from normal to miserable",
-    "hamlet": "Constant cycle of misery and joy",
-    "cinderella": "Life goes from miserable to great, with a dip in between"
+    "Lman-in-hole": "Man gets into trouble and gets out",
+    "Lboy-meets-girl": "Boy finds girl, loses her, gets her back",
+    "Lkafkaesque": "Life goes from normal to miserable",
+    "Lhamlet": "Constant cycle of misery and joy",
+    "Lcinderella": "Life goes from miserable to great, with a dip in between"
 };
 
 
@@ -104,7 +104,7 @@ svg.append("line")
 
 function toggleLine(id) {
     let line = d3.select("#L" + id);
-    let description = d3.select("#" + id + "-description");  // Change id to "-description"
+    let description = d3.select("#L" + id + "-description");  // Change id to "-description"
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
     description.style("display", display === "none" ? null : "none");
