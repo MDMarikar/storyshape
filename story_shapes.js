@@ -63,6 +63,7 @@ for (let storyType in storyShapes) {
         .attr("class", "story")
         .attr("id", storyType + "-description")  // Change id to "-description"
         .text(storyDescriptions[storyType])  // Use the storyDescriptions dictionary
+        .attr("fill", colors[i])  // Set the text color to match the line
         .style("display", "none");  // Hide label initially
     
     i++;
