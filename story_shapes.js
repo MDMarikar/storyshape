@@ -38,7 +38,6 @@ let line = d3.line()
 let colors = ["blue", "red", "green", "purple", "orange"];
 let i = 0;
 
-
 for (let storyType in storyShapes) {
     svg.append("path")
         .datum(storyShapes[storyType])
@@ -47,7 +46,8 @@ for (let storyType in storyShapes) {
         .attr("d", line)
         .attr("stroke", colors[i])
         .attr("stroke-width", 2)
-        .attr("fill", "none");
+        .attr("fill", "none")
+        .style("display", "none");
     i++;
 }
 
@@ -56,8 +56,3 @@ function toggleLine(id) {
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
 }
-
-
-
-
-
