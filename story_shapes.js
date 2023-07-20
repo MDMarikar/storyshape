@@ -79,5 +79,6 @@ svg.append("line")
 function toggleLine(id) {
     let line = d3.select("#" + id);
     let display = line.style("display");
-    line.style("display", display === "none" ? "block" : "none");
+    line.style("display", display === "none" ? "inline" : "none");
 }
+
