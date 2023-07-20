@@ -24,6 +24,8 @@ let storyShapes = {
     }))
 
 
+    
+
 
 
 
@@ -38,9 +40,11 @@ for (let storyType in storyShapes) {
         .attr("class", "line")
         .attr("id", storyType)
         .attr("d", line)
-        .attr("stroke", colors[i]);
+        .attr("stroke", colors[i])
+        .style("display", "none");  // Add this line
     i++;
 }
+
 
 // Create x and y axes
 let xAxis = d3.axisBottom(xScale);
@@ -76,9 +80,11 @@ svg.append("line")
     .attr("y2", yScale(0))
     .attr("stroke", "black");
 
+
 function toggleLine(id) {
     let line = d3.select("#" + id);
     let display = line.style("display");
     line.style("display", display === "none" ? "inline" : "none");
 }
+
 
