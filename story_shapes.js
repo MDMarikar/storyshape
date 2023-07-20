@@ -14,11 +14,11 @@ let line = d3.line()
 
 // Story shapes data
 let storyShapes = {
-    "man-in-hole": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 50 ? -i / 50 : (i - 50) / 50})),
-    "boy-meets-girl": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2)})),
-    "kafkaesque": Array.from({length: 100}, (_, i) => ({x: i / 99, y: -i / 100})),
-    "hamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
-    "cinderella": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? -1 + i / 25 : (i < 50 ? -1 + (i - 25) / 25 : (i < 75 ? -1 + (i - 50) / 25 : -1 + i / 25))}))
+    "Lman-in-hole": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 50 ? -i / 50 : (i - 50) / 50})),
+    "Lboy-meets-girl": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2)})),
+    "Lkafkaesque": Array.from({length: 100}, (_, i) => ({x: i / 99, y: -i / 100})),
+    "Lhamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
+    "Lcinderella": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? -1 + i / 25 : (i < 50 ? -1 + (i - 25) / 25 : (i < 75 ? -1 + (i - 50) / 25 : -1 + i / 25))}))
 };
 
 // Draw story shapes with different colors
@@ -70,7 +70,7 @@ svg.append("line")
     .attr("stroke", "black");
 
 function toggleLine(id) {
-    let line = d3.select("#" + id);
+    let line = d3.select("#L" + id);
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
 }
