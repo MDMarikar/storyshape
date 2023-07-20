@@ -7,11 +7,11 @@
 <body>
     <h1>Vonnegut Story Shapes</h1>
     <div id="buttons">
-        <button id="man-in-hole" class="button story-button">Man in Hole</button>
-        <button id="boy-meets-girl" class="button story-button">Boy Meets Girl</button>
-        <button id="kafkaesque" class="button story-button">Kafkaesque</button>
-        <button id="hamlet" class="button story-button">Hamlet</button>
-        <button id="cinderella" class="button story-button">Cinderella</button>
+        <button id="man-in-hole" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Man in Hole</button>
+        <button id="boy-meets-girl" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Boy Meets Girl</button>
+        <button id="kafkaesque" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Kafkaesque</button>
+        <button id="hamlet" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Hamlet</button>
+        <button id="cinderella" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Cinderella</button>
     </div>
     <div id="story-graph"></div>
     <script src="https://d3js.org/d3.v6.min.js"></script>
