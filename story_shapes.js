@@ -70,7 +70,16 @@ for (let storyType in storyShapes) {
         .attr("stroke", colors[i])
         .style("display", "none");  // Add this line to initially show the lines
 
-
+   // Create labels
+    for (let j = 0; j < storyLabels[storyType].length; j++) {
+        svg.append("text")
+            .attr("x", xScale(storyLabels[storyType][j].x))  // Position along the x-axis
+            .attr("y", yScale(storyLabels[storyType][j].y))  // Position along the y-axis
+            .attr("text-anchor", "middle")
+            .attr("id", storyType + "-label-" + j)  // Give each label a unique id
+            .text(storyLabels[storyType][j].text)
+            .style("display", "none");  // Hide label initially
+    }
     
     i++;
 }
