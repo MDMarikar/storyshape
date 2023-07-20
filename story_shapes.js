@@ -18,7 +18,19 @@ let storyShapes = {
     "Lboy-meets-girl": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2)})),
     "Lkafkaesque": Array.from({length: 100}, (_, i) => ({x: i / 99, y: -i / 100})),
     "Lhamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
-    "Lcinderella": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? -1 + i / 25 : (i < 50 ? -1 + (i - 25) / 25 : (i < 75 ? -1 + (i - 50) / 25 : -1 + i / 25))}))
+   
+    "Lcinderella": Array.from({length: 100}, (_, i) => {
+    if (i < 25) {
+        return {x: i / 99, y: -1};  // Start at -1
+    } else if (i < 50) {
+        return {x: i / 99, y: -1 + 3 * (i - 25) / 25};  // When prince met, go to high (up to 2)
+    } else if (i < 75) {
+        return {x: i / 99, y: 2 - 1.5 * (i - 50) / 25};  // Go back down to be not -1 but closer to 0 (down to 0.5)
+    } else {
+        return {x: i / 99, y: 0.5 + 1.5 * (i - 75) / 25};  // Then really high (up to 2)
+    }
+})
+
 };
 
 // Draw story shapes with different colors
