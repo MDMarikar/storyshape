@@ -1,86 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive Story Shapes</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <style>
-        .line {
-            fill: none;
-            stroke-width: 2px;
-        }
-  
-
-    #buttons {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    }
-
-
-.button {
-    display: inline-block;
-    padding: 20px 40px;  /* Increase the padding to make the buttons larger */
-    font-size: 24px;  /* Increase the font size */
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;  /* Text color is white */
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-/* Specify colors for each button to match the lines they represent */
-#man-in-hole { background-color: blue; }
-#boy-meets-girl { background-color: red; }
-#kafkaesque { background-color: green; }
-#hamlet { background-color: purple; }
-#cinderella { background-color: orange; }
-
-
-
-.button.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-        
-.button:hover {
-    filter: brightness(75%);
-}
-
-
-    .axis path,
-    .axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
-    }
-
-    .axis text {
-    font-family: sans-serif;
-    font-size: 11px;
-    }
-    </style>
+    <title>Vonnegut Story Shapes</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div>
-        
-    
-
-        <button id="man-in-hole" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Man in Hole</button>
-<button id="boy-meets-girl" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Boy Meets Girl</button>
-<button id="kafkaesque" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Kafkaesque</button>
-<button id="hamlet" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Hamlet</button>
-<button id="cinderella" class="button story-button" onclick="toggleLine(this.id); this.classList.toggle('active');">Cinderella</button>
-
-
-        
+    <h1>Vonnegut Story Shapes</h1>
+    <div id="buttons">
+        <button id="man-in-hole" class="button story-button">Man in Hole</button>
+        <button id="boy-meets-girl" class="button story-button">Boy Meets Girl</button>
+        <button id="kafkaesque" class="button story-button">Kafkaesque</button>
+        <button id="hamlet" class="button story-button">Hamlet</button>
+        <button id="cinderella" class="button story-button">Cinderella</button>
     </div>
-    <!-- Set viewBox and preserveAspectRatio for a responsive SVG -->
-    <svg id="story-shapes" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet"></svg>
+    <div id="story-graph"></div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="story_shapes.js"></script>
 </body>
 </html>
