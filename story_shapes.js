@@ -25,9 +25,9 @@ let storyShapes = {
     } else if (i < 50) {
         return {x: i / 99, y: -1 + 3 * (i - 25) / 25};  // When prince met, go to high (up to 2)
     } else if (i < 75) {
-        return {x: i / 99, y: 2 - 1.5 * (i - 50) / 25};  // Go back down to be not -1 but closer to 0 (down to 0.5)
+        return {x: i / 99, y: 2 - 2.2 * (i - 50) / 25};  // Go back down to be not -1 but closer to 0 (down to 0.5)
     } else {
-        return {x: i / 99, y: 0.5 + 1.5 * (i - 75) / 25};  // Then really high (up to 2)
+        return {x: i / 99, y: -0.2 + 5 * (i - 75) / 25};  // Then really high (up to 5)
     }
 })
 
