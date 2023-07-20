@@ -45,17 +45,13 @@ for (let storyType in storyShapes) {
         .attr("id", storyType)
         .attr("d", line)
         .attr("stroke", colors[i])
-        .style("display", "none");
+        .attr("stroke-width", 2)
+        .attr("fill", "none");
     i++;
 }
-
-
 
 function toggleLine(id) {
     let line = d3.select("#" + id);
     let display = line.style("display");
-    if (display === "none") {
-        line.style("display", "inline");
-    }
+    line.style("display", display === "none" ? "inline" : "none");
 }
-
