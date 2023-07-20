@@ -98,7 +98,7 @@ svg.append("text")
 
 // Add "End" label to the x-axis
 svg.append("text")
-    .attr("x", xScale(1) - 50)  // Position slightly inside from the end of the x-axis
+    .attr("x", xScale(1) - 65)  // Position slightly inside from the end of the x-axis
     .attr("y", yScale(0) + 30)  // Position slightly below the x-axis
     .attr("text-anchor", "end")  // Align to the end of the text
     .text("End");
