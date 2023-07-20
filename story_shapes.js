@@ -86,3 +86,21 @@ function toggleLine(id) {
     let display = line.style("display");
     line.style("display", display === "none" ? "block" : "none");
 }
+
+
+
+// Add "Beginning" label to the x-axis
+svg.append("text")
+    .attr("x", xScale(0))  // Position at the start of the x-axis
+    .attr("y", yScale(0) + 30)  // Position slightly below the x-axis
+    .attr("text-anchor", "start")  // Align to the start of the text
+    .text("Beginning");
+
+// Add "End" label to the x-axis
+svg.append("text")
+    .attr("x", xScale(1))  // Position at the end of the x-axis
+    .attr("y", yScale(0) + 30)  // Position slightly below the x-axis
+    .attr("text-anchor", "end")  // Align to the end of the text
+    .text("End");
+
+
