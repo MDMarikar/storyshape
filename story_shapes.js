@@ -1,8 +1,8 @@
 let svg = d3.select("#story-shapes");
 
 // Create x and y scales
-let xScale = d3.scaleLinear().domain([0, 1]).range([0, 600]);
-let yScale = d3.scaleLinear().domain([-1, 1]).range([400, 0]);
+let xScale = d3.scaleLinear().domain([0, 1]).range([50, 650]);
+let yScale = d3.scaleLinear().domain([-1, 1]).range([450, 50]);
 
 // Line generator
 let line = d3.line()
@@ -28,6 +28,30 @@ for (let storyType in storyShapes) {
         .attr("d", line)
         .attr("stroke", "black");
 }
+
+// Create x and y axes
+let xAxis = d3.axisBottom(xScale);
+let yAxis = d3.axisLeft(yScale);
+
+svg.append("g")
+    .attr("transform", "translate(0,450)")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("transform", "translate(50,0)")
+    .call(yAxis);
+
+// Add x and y axis labels
+svg.append("text")
+    .attr("x", 350)
+    .attr("y", 490)
+    .text("Beginning to End");
+
+svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -250)
+    .attr("y", 10)
+    .text("Misery to Joy");
 
 function toggleLine(id) {
     let line = d3.select("#" + id);
