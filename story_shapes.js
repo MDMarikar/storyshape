@@ -18,10 +18,11 @@ let storyShapes = {
     "boy-meets-girl": Array.from({length: 100}, (_, i) => ({x: i / 99, y: i < 25 ? i / 25 : (i < 75 ? 2 - i / 25 : i / 25 - 2)})),
     "kafkaesque": Array.from({length: 100}, (_, i) => ({x: i / 99, y: -i / 100})),
     "hamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
-     "cinderella": Array.from({length: 100}, (_, i) => ({
+    "cinderella": Array.from({length: 100}, (_, i) => ({
     x: i / 99, 
-    y: i < 25 ? -1 : (i < 50 ? -1 + 2 * (i - 25) / 25 : (i < 75 ? 1 - 1.5 * (i - 50) / 25 : -0.25 + 2.25 * (i - 75) / 25))
+    y: i < 25 ? -1 : (i < 50 ? -1 + 2 * (i - 25) / 25 : (i < 75 ? 1 - 2.8 * (i - 50) / 25 : -0.4 + 2.4 * (i - 75) / 25))
     }))
+
 
 
 
