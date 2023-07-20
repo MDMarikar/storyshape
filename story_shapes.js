@@ -52,9 +52,5 @@ for (let storyType in storyShapes) {
 }
 
 
-function toggleLine(id) {
-    let line = d3.select("#" + id);
-    let display = line.style("display");
-    line.style("display", display === "none" ? "block" : "none");
-}
+
 
