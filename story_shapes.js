@@ -47,8 +47,7 @@ for (let storyType in storyShapes) {
         .attr("d", line)
         .attr("stroke", colors[i])
         .attr("stroke-width", 2)
-        .attr("fill", "none")
-        .style("display", "none");  // Add this line to initially hide the lines
+        .attr("fill", "none");
     i++;
 }
 
