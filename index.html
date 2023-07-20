@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vonnegut Story Shapes</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Interactive Story Shapes</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .line {
+            fill: none;
+            stroke-width: 2px;
+        }
+        button {
+            display: block;  // Stack buttons vertically
+            margin: 5px 0;  // Add some space between buttons
+            font-size: 4vw;  // Scale font size with window width
+        }
+    </style>
 </head>
 <body>
-    <h1>Vonnegut Story Shapes</h1>
-    <div id="buttons">
-        <button id="man-in-hole" class="button story-button" onclick="toggleLine('man-in-hole')">Man in Hole</button>
-        <button id="boy-meets-girl" class="button story-button" onclick="toggleLine('boy-meets-girl')">Boy Meets Girl</button>
-        <button id="kafkaesque" class="button story-button" onclick="toggleLine('kafkaesque')">Kafkaesque</button>
-        <button id="hamlet" class="button story-button" onclick="toggleLine('hamlet')">Hamlet</button>
-        <button id="cinderella" class="button story-button" onclick="toggleLine('cinderella')">Cinderella</button>
+    <div>
+        <button onclick="toggleLine('man-in-hole')">Toggle Man in a Hole</button>
+        <button onclick="toggleLine('boy-meets-girl')">Toggle Boy Meets Girl</button>
+        <button onclick="toggleLine('kafkaesque')">Toggle Kafkaesque</button>
+        <button onclick="toggleLine('hamlet')">Toggle Hamlet</button>
+        <button onclick="toggleLine('cinderella')">Toggle Cinderella</button>
     </div>
-    <div id="story-graph"></div>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Set viewBox and preserveAspectRatio for a responsive SVG -->
+    <svg id="story-shapes" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet"></svg>
     <script src="story_shapes.js"></script>
 </body>
 </html>
