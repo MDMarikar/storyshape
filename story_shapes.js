@@ -72,13 +72,15 @@ for (let storyType in storyShapes) {
 
    // Create labels
     for (let j = 0; j < storyLabels[storyType].length; j++) {
+        let point = storyShapes[storyType].find(d => d.x === storyLabels[storyType][j].x);
         svg.append("text")
-            .attr("x", xScale(storyLabels[storyType][j].x))  // Position along the x-axis
-            .attr("y", yScale(storyLabels[storyType][j].y))  // Position along the y-axis
+            .attr("x", xScale(point.x))
+            .attr("y", yScale(point.y))
             .attr("text-anchor", "middle")
-            .attr("id", storyType + "-label-" + j)  // Give each label a unique id
+            .attr("class", "story")  // Add the "story" class
+            .attr("id", storyType + "-label-" + j)
             .text(storyLabels[storyType][j].text)
-            .style("display", "none");  // Hide label initially
+            .style("display", "none");
     }
     
     i++;
