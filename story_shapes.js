@@ -20,8 +20,10 @@ let storyShapes = {
     "hamlet": Array.from({length: 100}, (_, i) => ({x: i / 99, y: Math.sin(i / 100 * 2 * Math.PI)})),
     "cinderella": Array.from({length: 100}, (_, i) => ({
     x: i / 99, 
-    y: i < 25 ? -1 : (i < 50 ? -1 + 2 * (i - 25) / 25 : (i < 75 ? 1 - 2 * (i - 50) / 25 : 1 + (i - 75) / 25))
+    y: i < 25 ? -1 : (i < 50 ? -1 + 2 * (i - 25) / 25 : (i < 75 ? 1 - 3 * (i - 50) / 25 : -0.5 + 5 * (i - 75) / 25))
 }))
+
+
 
 };
 
