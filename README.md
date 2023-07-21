@@ -1,3 +1,2 @@
 # storyshapes
-
-i asked chatgpt with code interpreter to make a graph of kurt vonneguts shape of stories and turn it into a webpage
+chatGPT4 assisted HTML5 with d3 library interactive of kurt vonnegut shape of stories
